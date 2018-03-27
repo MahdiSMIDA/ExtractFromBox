@@ -231,8 +231,8 @@ void ccExametrics::initializeDrawSettings()
     // Create directory "Exametrics" in DB tree
     this->m_exametricsGroup = new ccHObject("Exametrics");
     m_app->addToDB(this->m_exametricsGroup, false, true, false, false);
-   this->m_extract = new ccHObject("extracted cloud");
-    m_app->addToDB(this->m_extract, false, true, false, false);
+  // this->m_extract = new ccHObject("extracted cloud");
+    //m_app->addToDB(this->m_extract, false, true, false, false);
 
     if(DEBUG_BOX_POINTS || DEBUG_PLAN)
     {
@@ -297,9 +297,9 @@ void ccExametrics::updateBox()
     if(this->box)
     {
         box->showNormals(true);
-        box->setColor(ccColor::blue);
+        box->setColor(ccColor::yellow);
         box->showColors(true);
-        box->enableStippling(false);
+        box->enableStippling(true);
         box->getOwnBB(true);
         box->refreshBB();
         box->refreshDisplay(true);

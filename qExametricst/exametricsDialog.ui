@@ -211,7 +211,7 @@
         <rect>
          <x>44</x>
          <y>100</y>
-         <width>155</width>
+         <width>156</width>
          <height>71</height>
         </rect>
        </property>
@@ -260,7 +260,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Box Dimension &amp; Position</string>
+        <string>Box Dimensions &amp; Position</string>
        </property>
       </widget>
       <widget class="QWidget" name="layoutWidget">
