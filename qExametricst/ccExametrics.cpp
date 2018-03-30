@@ -10,6 +10,7 @@
 
 //Qt
 #include <QtGui>
+#include<QTime>
 
 /* Default constructor */
 ccExametrics::ccExametrics(QObject* parent/*=0*/)
@@ -182,7 +183,10 @@ void ccExametrics::onCompute()
             QString tmpFileName = this->rootLasFile->getName();
             int parenthesis = tmpFileName.indexOf('(');
             QString path = tmpFileName.right(tmpFileName.length() - parenthesis).remove('(').remove(')');
-            Utils::saveCloudToLasFile(ccHObjectCaster::ToGenericPointCloud(croppedEnt), path + QString("/test.las"), m_dlg);
+            //std::time_t t = std::time(0);
+             QTime t= 	t.currentTime();
+             QString time= t.toString();
+            Utils::saveCloudToLasFile(ccHObjectCaster::ToGenericPointCloud(croppedEnt), path +QString("/ExtractedCloudAt") + time+QString(".las"), m_dlg);
 
             }
 /* end of crop*/
@@ -207,7 +211,7 @@ void ccExametrics::initializeParameterWidgets()
     CCVector3 minCorner = box.minCorner();
     CCVector3 maxCorner = box.maxCorner();
 
-    float xBox = 0, yBox = 0, zBox = 0;
+    float xBox =2, yBox = 2, zBox = 5;
     xBox = maxCorner.x - minCorner.x;
     yBox = maxCorner.y - minCorner.y;
     zBox = maxCorner.z - minCorner.z;
@@ -218,8 +222,12 @@ void ccExametrics::initializeParameterWidgets()
 
     m_dlg->spbX->setMinimum(0.1);
     m_dlg->spbY->setMinimum(0.1);
-    m_dlg->spbX->setValue(1);
-    m_dlg->spbY->setValue(1);
+    m_dlg->spbX->setValue(6);
+    m_dlg->spbY->setValue(3);
+
+    m_dlg->spbPx->setValue(2);
+    m_dlg->spbPy->setValue(2);
+    m_dlg->spbPz->setValue(5);
 
     // tolerancedisplay cloud
     m_dlg->toleranceSpb->setValue(TOLERANCE_INIT);
